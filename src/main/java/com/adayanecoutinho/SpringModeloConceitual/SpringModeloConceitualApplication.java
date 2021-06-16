@@ -27,7 +27,8 @@ public class SpringModeloConceitualApplication implements CommandLineRunner{
 	private ProdutoRepository produtoRepository;
 	@Autowired
 	private EstadoRepository estadoRepository;
-	@Autowired CidadeRepository cidadeRepository;
+	@Autowired 
+	private CidadeRepository cidadeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringModeloConceitualApplication.class, args);
