@@ -12,6 +12,7 @@ import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import com.adayanecoutinho.SpringModeloConceitual.domain.Categoria;
+import com.adayanecoutinho.SpringModeloConceitual.dto.CategoriaDTO;
 import com.adayanecoutinho.SpringModeloConceitual.repositories.CategoriaRepository;
 import com.adayanecoutinho.SpringModeloConceitual.services.exceptions.DataIntegrityException;
 import com.adayanecoutinho.SpringModeloConceitual.services.exceptions.ObjectNotFoundException;
@@ -57,6 +58,11 @@ public class CategoriaService {
 	public Page<Categoria> findPage(Integer page, Integer linesPerPage,String orderBy, String direction){
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
+		
+	}
+	
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
 		
 	}
 
